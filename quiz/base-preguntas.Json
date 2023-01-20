@@ -118,6 +118,27 @@
     "incorrecta3": "Polonia",
     "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxu4qAx6of8KMnE0mYqyrHy7kg1WJAwR8soA&usqp=CAU",
     "objectFit": "contain"
+  },
+  {
+    "categoria": "Matematica",
+    "pregunta": "¿Cuanto es 2x2?",
+    "respuesta": "4",
+    "incorrecta1": "Maria",
+    "incorrecta2": "Pepino",
+    "incorrecta3": "House",
+    "imagen": "https://ichef.bbci.co.uk/news/640/cpsprodpb/164EE/production/_109347319_gettyimages-611195980.jpg",
+    "objectFit": "contain"
+  },
+  {
+    "categoria": "Ingles",
+    "pregunta": "¿Como se dice casa en ingles?",
+    "respuesta": "House",
+    "incorrecta1": "Piedra",
+    "incorrecta2": "Carretilla",
+    "incorrecta3": "You",
+    "imagen": "https://www.britishcouncil.org.mx/sites/default/files/styles/bc-square-100x100/public/banderas_ingles_britanico_y_americano_.png?itok=URgc1Oey",
+    "objectFit": "contain"
   }
+
   
 ]
