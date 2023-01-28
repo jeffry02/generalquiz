@@ -12,6 +12,31 @@ let npreguntas =[];
 
 let preguntas_hechas = 0;
 let preguntas_correctas = 0;
+let suspender_botones = false;
+
+function click_reset(parameter){
+  console.log('hola soy click reset', parameter);
+  preguntas_correctas = 0;
+  preguntas_hechas = 0;
+
+  npreguntas = [];
+  suspender_botones = false;
+
+  pregunta = "";
+  posibles_respuestas = [];
+
+  select_id('main').innerHTML = '<div class="encabezado"><div class="categoria" id="categoria">categoria</div><div class="pregunta" id="pregunta">pregunta</div><img src="" class="imagen" id="imagen"></div><div class="btn" id="btn1" onclick="oprimir_btn(0)">Opcion 1</div><div class="btn" id="btn2" onclick="oprimir_btn(1)">Opcion 2</div><div class="btn" id="btn3" onclick="oprimir_btn(2)">Opcion 3</div><div class="btn" id="btn4" onclick="oprimir_btn(3)">Opcion 4</div><div id="numero"></div><div id="puntaje"></div>';
+  
+  btn_correspondiente = [
+    select_id("btn1"), select_id("btn2"),
+    select_id("btn3"), select_id("btn4")
+  ];
+  escogerPreguntaAleatoria();
+
+}
+
+//click_reset({'name':'Mike','apellido':'martinez','age':34});
+//click_reset(['caballo','perro','chancho']);
 
 function escogerPreguntaAleatoria() {
   let n;
@@ -27,19 +52,7 @@ console.log(npreguntas.length);
 if (npreguntas.length == interpreteBp.length) {  // 0 == 3
   if (mostrar_pantalla_juego_terminado) { 
     select_id('main').innerHTML = "Juego Terminado, Puntuación: " + preguntas_correctas + "/" + (preguntas_hechas);
-    
-    /*if(reiniciar_puntos_al_reiniciar_el_juego) {
-      preguntas_correctas = 0
-      preguntas_hechas = 0
-    }
-    npreguntas = [];*/
-
-    /*
-    quiero que se muestre un boton de empezar de nuevo cuando termiene el quiz, que este de debajo del mensaje de juego terminado.
-    Y cuando el usuario le de click, entonces vengas y incies el contado reiniciar variables de preguntas correctas en 0, preguntas hechas en 0, npreguntas = []
-    y mostres de nuevo el html para inicie el quiz.
-
-    */
+    select_id('main').innerHTML += "<button onclick='click_reset(\"maria\")'>Reiniciar</button>";
   }
   
 }else{
@@ -74,13 +87,6 @@ if (preguntas_hechas >1) {
   desordenarRespuestas(pregunta);
 } 
 
-let btns = [
-  select_id("btn1"),
-  select_id("btn2"),
-  select_id("btn3"),
-  select_id("btn4")
-]
-
 function desordenarRespuestas(pregunta) {
  posibles_respuestas = [
     pregunta.respuesta,
@@ -96,9 +102,10 @@ function desordenarRespuestas(pregunta) {
   select_id("btn4").innerHTML = posibles_respuestas[3];
 }
 
-let suspender_botones = false;
 
 function oprimir_btn(i) { 
+  console.log(i);
+  console.log(btn_correspondiente);
   if (suspender_botones) {
     return;
   }
